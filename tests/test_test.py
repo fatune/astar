@@ -1,14 +1,14 @@
 import numpy as np
 
 from astar import find_path
-from astar import get_neighbors
+#from astar import get_neighbors
 
 from astar_pure_python import find_path as find_path_pure_python
 
 def test_compare_time():
     from time import time
 
-    grid = np.zeros((1000,1000))
+    grid = np.zeros((1000,1000), dtype=np.dtype("l"))
     start = (1,1)
     goal = (903,901)
     
@@ -24,7 +24,7 @@ def test_compare_time():
 
 
 def test_function_returns_list():
-    grid = np.zeros((5,10))
+    grid = np.zeros((5,10),dtype=np.dtype("l"))
     start = (1,1)
     goal = (3,1)
     result = find_path(grid,start,goal)
@@ -42,27 +42,27 @@ def test_function_returns_list():
     result = find_path(grid,start,goal)
     print(result)
 
-def test_function_get_neighbors():
-    grid = np.zeros((5,10))
-
-    result = get_neighbors(grid, (0,0))
-    assert result == [(1,0),(0,1)]
-
-    result = get_neighbors(grid, (1,1))
-    assert result == [(0,1),(1,0),(2,1),(1,2)]
-
-    result = get_neighbors(grid, (0,2))
-    assert result == [(0,1), (1,2), (0,3)]
-
-    result = get_neighbors(grid, (100,100))
-    assert result == []
-
-    result = get_neighbors(grid, (-1,-1))
-    assert result == []
-
-    result = get_neighbors(grid, (5,10))
-    assert result == []
-
-    result = get_neighbors(grid, (4,9))
-    assert result == [(3,9),(4,8)]
-    
+#def test_function_get_neighbors():
+#    grid = np.zeros((5,10))
+#
+#    result = get_neighbors(grid, (0,0))
+#    assert result == [(1,0),(0,1)]
+#
+#    result = get_neighbors(grid, (1,1))
+#    assert result == [(0,1),(1,0),(2,1),(1,2)]
+#
+#    result = get_neighbors(grid, (0,2))
+#    assert result == [(0,1), (1,2), (0,3)]
+#
+#    result = get_neighbors(grid, (100,100))
+#    assert result == []
+#
+#    result = get_neighbors(grid, (-1,-1))
+#    assert result == []
+#
+#    result = get_neighbors(grid, (5,10))
+#    assert result == []
+#
+#    result = get_neighbors(grid, (4,9))
+#    assert result == [(3,9),(4,8)]
+#    
